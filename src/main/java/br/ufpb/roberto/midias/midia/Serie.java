@@ -18,9 +18,16 @@ public class Serie extends Midia{
     @Override
     public String toString(){
         return "Filme "+super.getTitulo()
-                +"\nGenero "+super.getGenero()+"\nEpisodios "+this.episodios
+                +"\nGenero "+super.getGenero()+"\nEpisodios "+this.episodios.size()
                 +"\nLancado no ano " +super.getAnoLancamento()
                 +"\nDescricao"+super.getDescricao()+"\nElenco "+String.join(",",super.getElenco())
                 +"\nDiretor "+super.getDiretor();
+    }
+    public int somaEps(){
+        int duracao=0;
+        for(Episodio ep: this.episodios){
+            duracao = ep.getDuracaoEp();
+        }
+        return duracao/episodios.size();
     }
 }
